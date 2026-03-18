@@ -23,10 +23,10 @@ export default function CodeEditor() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const ua = navigator.userAgent;
+    // iPadOS 13+ reports as MacIntel with touch points
+    const isIPad = /MacIntel/.test(navigator.platform) && navigator.maxTouchPoints > 1;
+    setIsMobile(/Mobi|Android|iPhone|iPad|iPod/i.test(ua) || isIPad);
   }, []);
 
   const { tabs, activeTabId, activeTab, tabsRef, activeTabIdRef, setTabs, updateActiveTab, switchTab, addTab, closeTab } =
