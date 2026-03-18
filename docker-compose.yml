@@ -2,5 +2,5 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8000"
+      - "8443:8443"
     restart: unless-stopped
