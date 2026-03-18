@@ -18,7 +18,7 @@ export function useRunCode(
     setTabs(prev => prev.map(t => t.id === tabId ? { ...t, result: null, error: null } : t));
 
     try {
-      const res = await fetch("https://py-api.fju.me:8443/exec_code", {
+      const res = await fetch("https://py-api.fju.me/exec_code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code }),
