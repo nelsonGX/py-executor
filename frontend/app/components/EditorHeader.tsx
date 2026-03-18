@@ -35,7 +35,7 @@ export function EditorHeader({
 
   return (
     <header className="flex items-center justify-between px-4 h-11 shrink-0 bg-[#111114] border-b border-white/[0.07]">
-      <div className="flex items-center gap-2.5">
+      <div className="hidden sm:flex items-center gap-2.5">
         <div className="flex items-center justify-center w-6 h-6 rounded bg-[#2563eb] shrink-0">
           <span className="text-[10px] font-bold text-white leading-none">Py</span>
         </div>
