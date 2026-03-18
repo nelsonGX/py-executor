@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
+    "@types/prismjs": "^1.26.6",
     "ansi-to-html": "^0.7.2",
     "next": "16.1.7",
+    "prismjs": "^1.30.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-simple-code-editor": "^0.14.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

@@ -35,7 +35,7 @@ export function useResizable(
       setHeight(Math.min(Math.max(dragStartHeight.current + delta, min), maxH));
     };
     const onMove = (e: MouseEvent) => clamp(e.clientY);
-    const onTouchMove = (e: TouchEvent) => { e.preventDefault(); clamp(e.touches[0].clientY); };
+    const onTouchMove = (e: TouchEvent) => { if (isDragging.current) { e.preventDefault(); } clamp(e.touches[0].clientY); };
     const onUp = () => {
       if (!isDragging.current) return;
       isDragging.current = false;

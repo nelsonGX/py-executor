@@ -93,7 +93,7 @@ export function OutputPanel({
         </div>
 
         {/* Content */}
-        <div className="flex-1 min-h-0 overflow-auto bg-[#0d0d0f]">
+        <div className="flex-1 min-h-0 overflow-auto bg-[#0d0d0f] select-text"  style={{ WebkitUserSelect: "text", userSelect: "text" }}>
           {!hasOutput ? (
             <div className="flex items-center justify-center h-full">
               <span className="text-[11px] text-white/15 font-mono select-none">

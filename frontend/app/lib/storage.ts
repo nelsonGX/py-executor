@@ -10,8 +10,15 @@ function decodeCode(encoded: string): string {
   try { return decodeURIComponent(escape(atob(encoded))); } catch { return ""; }
 }
 
+function generateUUID(): string {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 export function makeTab(name: string, code = ""): Tab {
-  return { id: crypto.randomUUID(), name, code, result: null, error: null };
+  return { id: generateUUID(), name, code, result: null, error: null };
 }
 
 export function persistTabs(tabs: Tab[]) {

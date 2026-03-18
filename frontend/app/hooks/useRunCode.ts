@@ -1,16 +1,15 @@
 import { useCallback, useRef, useState } from "react";
-import type * as Monaco from "monaco-editor";
 import type { Tab } from "../lib/types";
 
 export function useRunCode(
-  editorRef: React.RefObject<Monaco.editor.IStandaloneCodeEditor | null>,
+  getCode: () => string,
   activeTabIdRef: React.RefObject<string>,
   setTabs: React.Dispatch<React.SetStateAction<Tab[]>>,
 ) {
   const [loading, setLoading] = useState(false);
 
   const runCode = useCallback(async () => {
-    const code = editorRef.current?.getValue();
+    const code = getCode();
     if (!code?.trim()) return;
     const tabId = activeTabIdRef.current;
 
@@ -35,7 +34,7 @@ export function useRunCode(
     } finally {
       setLoading(false);
     }
-  }, [editorRef, activeTabIdRef, setTabs]);
+  }, [getCode, activeTabIdRef, setTabs]);
 
   // Stable ref so Monaco keybinding can always call the latest version
   const runCodeRef = useRef(runCode);
